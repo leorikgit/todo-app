@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <header class="shadow">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <div class="d-flex justify-content-between">
+                        <div><h1 class="header-title">ToDo List</h1></div>
+                        <a href="{{ path('todolist.create') }}" class="btn btn-success align-self-center px-4">Create</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="d-flex flex-column">
+                    {% for task in tasks %}
+                        <div class="p-2 single-list-item">
+                            <div class="d-flex justify-content-between">
+                                <h5 class="item-title" {% if task.status %} style="text-decoration: line-through"{% endif %}>{{ task.title }}</h5>
+                                <div class="buttons">
+                                    <a href="{{ path('todolist.updateStatus', {'id': task.getId}) }}" class="pl-2 item-button "><i style="color:green" class="far fa-calendar-check fa-lg"></i></a>
+                                    <a href="" class="pl-2 item-button"><i style="color:blue" class="far fa-calendar-alt fa-lg"></i></a>
+                                    <a href="{{ path('todolist.delete', {'id': task.getId}) }}" class="pl-2 item-button"><i style="color:red" class="fas fa-calendar-times fa-lg"></i></a>
+                                </div>
+                            </div>
+                            <div class="gray-text pb-2">qwwfeewr ewwere</div>
+                            <small>{{ task.createdAt|date('Y-m-d H:i') }}</small>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}
+{% block javascripts %}
+    <script>
+        $('.show-todolist-modal').click(function (e) {
+
+            e.preventDefault();
+
+            $('#todolistModal').modal("show");
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,37 @@
+body {
+    background-color: white;
+    font-family: 'Roboto', sans-serif;
+}
+header{
+    padding: 2rem;
+    color: #cccccc;
+    background: #3e4249 url("/build/images/headerBG.png");
+
+}
+.header-title{
+    padding: 0px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: -2px;
+    color: #fff;
+
+}
+.single-list-item{
+    border-bottom: 1px solid #cccccc ;
+}
+.gray-text{
+    color: #383838;
+}
+.item-title{
+    font-weight: bold;
+}
+.single-list-item:hover{
+    background: whitesmoke;
+}
+.buttons{
+    display: none;
+}
+
+.single-list-item:hover .buttons{
+    display: block;
+}
